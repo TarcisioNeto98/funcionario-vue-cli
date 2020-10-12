@@ -17,7 +17,7 @@
                 <input id="idNascimento" class="form-control" type="date" placeholder="Data de Nascimento">
             </div>
             <div class="form-group col-md-6">
-                <label for="idEntrada">Nome</label><br>
+                <label for="idEntrada">Data de Entrada</label><br>
                 <input id="idEntrada" class="form-control" type="date" placeholder="Data de Entrada">
             </div>
         </div>
