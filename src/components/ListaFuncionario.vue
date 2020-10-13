@@ -9,15 +9,15 @@
                 <th>Data de Nascimento</th>
                 <th>Data de Entrada</th>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>Tarcisio</td>
-                <td>Chefe</td>
-                <td>21/06/1998</td>
-                <td>21/06/1998</td>
+            <tr v-for="funcionario in funcionarios" v-bind:key="funcionario.id">
+                <td>{{funcionario.id}}</td>
+                <td>{{funcionario.nome}}</td>
+                <td>{{funcionario.cargo}}</td>
+                <td>{{funcionario.dataNascimento}}</td>
+                <td>{{funcionario.dataEntrada}}</td>
             </tr>
         </table>
-        <input type="button" value="GET" class="btn btn-outline-success btn-lg mt-2">
+        <input type="button" v-on:click = "get" value="GET" class="btn btn-outline-success btn-lg mt-2">
     </div>
 </template>
 
@@ -26,7 +26,13 @@ export default {
     name: 'ListaFuncionario',
     data: function(){
         return {
-            index: [2, 1, 1]
+            url: 'http://localhost:8090/backend_funcionario/api/funcionarios/',
+            funcionarios: []
+        }
+    },
+    methods: {
+        get: function(){
+            this.$http.get(this.url).then(res => res.data).then(data => (this.funcionarios=data));
         }
     }
 }
