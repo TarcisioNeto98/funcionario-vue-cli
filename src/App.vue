@@ -2,7 +2,7 @@
   <div class="container" id="app">
     <div class="mb-3" id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/cadastrar">Cadastrar Funcionário</router-link> | 
+      <router-link to="/cadastrar">Cadastrar Funcionário e Atualizar</router-link> | 
       <router-link to="/buscar/funcionario">Buscar, Atualizar e Excluir por  ID</router-link> | 
       <router-link to="/buscar/cargo">Buscar por Cargo</router-link> | 
       <router-link to="/buscar/quantidade">Buscar por Quantidade</router-link> | 
