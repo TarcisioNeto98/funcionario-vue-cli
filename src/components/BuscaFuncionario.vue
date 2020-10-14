@@ -21,12 +21,13 @@ export default {
         return{
             id: '',
             url: 'http://localhost:8090/backend_funcionario/api/funcionarios/',
+            urlBusca: 'http://localhost:8090/backend_funcionario/api/funcionarios/id/',
             funcionario: null
         }
     },
     methods: {
         buscar: function(){
-            this.$http.get(this.url+this.id).then(Response => this.funcionario = Response.data);
+            this.$http.get(this.urlBusca+this.id).then(Response => this.funcionario = Response.data);
         },
         deletar: function(){
             this.$http.delete(this.url+this.id);

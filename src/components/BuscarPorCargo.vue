@@ -1,13 +1,37 @@
 <template>
     <div>
-        <MostrarDados titulo="Eai" v-bind:dados="array"/>
+        <MostrarDados titulo="Registros por cargos" v-bind:dados="funcionarios"/>
         <form>
             <div class="form-group">
                 <label>Cargo</label>
-                <input class="form-control" type="number" placeholder="Número de Registros"/>
+                <input v-model="cargo" class="form-control" type="text" placeholder="Cargo"/>
                 <small>Buscará os registros que correspondem ao cargo</small>
             </div>
-            <input class="btn btn-outline-info btn-lg" type="button" value="Buscar"/>
+            <input v-on:click = "clique" class="btn btn-outline-info btn-lg" type="button" value="Buscar"/>
         </form>
     </div>
 </template>
+
+<script>
+
+import MostrarDados from './MostrarDados.vue';
+
+export default{
+    name:"BuscarPorCargo",
+    data: function(){
+        return {
+            url: 'http://localhost:8090/backend_funcionario/api/funcionarios/cargo/',
+            cargo: '',
+            funcionarios: []
+        }
+    },
+    methods:{
+        clique: function(){
+            this.$http.get(this.url+this.cargo).then(res => res.data).then(data => (this.funcionarios=data));
+        }
+    },
+    components:{
+        MostrarDados
+    }
+}
+</script>
