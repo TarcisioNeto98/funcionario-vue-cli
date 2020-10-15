@@ -1,7 +1,7 @@
 <template>
     <div id="recuperarDados">
         <form>
-            <h4 class="mb-2">Buscar, Atualizar e Deletar Funcionário</h4>
+            <h4 class="mb-2">Buscar e Deletar Funcionário</h4>
             <div class="form-group">
                 <label for="id">Id</label>
                 <input v-model="id" class="form-control col-md-6" type="number" id="id">
@@ -10,7 +10,15 @@
             <!--<input class="btn btn-outline-info mb-2" type="button" value="Atualizar por ID">--><br>
             <input v-on:click = "deletar" class="btn btn-outline-danger" type="button" value="Deletar por ID">
         </form>
-        <div id="dados">{{this.funcionario}}</div>
+        <div id="dados">
+            <ul v-if="this.funcionario != null">
+                <li>id: {{this.funcionario.id}}</li>
+                <li>nome: {{this.funcionario.nome}}</li>
+                <li>cargo: {{this.funcionario.cargo}}</li>
+                <li>Data de Nascimento: {{this.funcionario.dataNascimento}}</li>
+                <li>Data de Entrada: {{this.funcionario.dataEntrada}}</li>
+            </ul>
+        </div>
     </div>
 </template>
 
