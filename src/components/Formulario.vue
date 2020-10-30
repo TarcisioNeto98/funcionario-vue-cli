@@ -36,7 +36,7 @@ export default {
     name:  'Formulario',
     data: function(){
         return {
-            url: 'http://localhost:8090/backend_funcionario/api/funcionarios/',
+            url: 'http://localhost:8095/api/funcionarios',
             id: '',
             nome: '',
             cargo: '',
@@ -47,12 +47,12 @@ export default {
     methods:{
         clique: function(){
             this.$http.post(this.url, {nome: this.nome, cargo: this.cargo,
-            dataNascimento: this.dataNascimento, dataEntrada: this.dataEntrada})
+            dataAniversario: this.dataNascimento, dataEntrada: this.dataEntrada})
             .then(Response => Response.data).then(data => alert(data));
         },
         atualizar: function(){
-            this.$http.put(this.url, {id: this.id, nome: this.nome, cargo: this.cargo,
-            dataNascimento: this.dataNascimento, dataEntrada: this.dataEntrada})
+            this.$http.put(this.url+'/'+this.id, {nome: this.nome, cargo: this.cargo,
+            dataAniversario: this.dataNascimento, dataEntrada: this.dataEntrada})
             .then(Response => alert(JSON.stringify(Response.data)));
         }
     }

@@ -20,14 +20,14 @@ export default{
     name:"BuscarPorCargo",
     data: function(){
         return {
-            url: 'http://localhost:8090/backend_funcionario/api/funcionarios/cargo/',
+            url: 'http://localhost:8095/api/funcionarios/cargo',
             cargo: '',
             funcionarios: []
         }
     },
     methods:{
         clique: function(){
-            this.$http.get(this.url+this.cargo).then(res => res.data).then(data => (this.funcionarios=data));
+            this.$http.get(this.url+'?cargo='+this.cargo).then(res => res.data).then(data => (this.funcionarios=data));
         }
     },
     components:{

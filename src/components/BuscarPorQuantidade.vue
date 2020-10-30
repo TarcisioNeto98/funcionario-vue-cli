@@ -21,7 +21,7 @@ export default {
         return {
             quantidade: '',
             funcionarios: [],
-            url: 'http://localhost:8090/backend_funcionario/api/funcionarios/quantidade/'
+            url: 'http://localhost:8090/backend_funcionario/api/funcionarios/quantidade?fquantidade='
         }
     },
     components:{

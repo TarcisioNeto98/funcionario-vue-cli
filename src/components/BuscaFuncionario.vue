@@ -28,17 +28,25 @@ export default {
     data: function(){
         return{
             id: '',
-            url: 'http://localhost:8090/backend_funcionario/api/funcionarios/',
-            urlBusca: 'http://localhost:8090/backend_funcionario/api/funcionarios/id/',
+            url: 'http://localhost:8095/api/funcionarios/',
+            urlBusca: 'http://localhost:8095/api/funcionarios/',
             funcionario: null
         }
     },
     methods: {
         buscar: function(){
-            this.$http.get(this.urlBusca+this.id).then(Response => this.funcionario = Response.data);
+            this.$http.get(this.urlBusca+this.id).then(Response => this.funcionario = Response.data).
+            catch((e) => {
+                if(e.response.status === 404) alert("Funcionário não encontrado!");
+                else alert("erro no servidor!");
+            });
         },
         deletar: function(){
-            this.$http.delete(this.url+this.id);
+            this.$http.delete(this.url+this.id).
+            catch((e) => {
+                if(e.response.status === 404) alert("Funcionário não encontrado!");
+                else alert("erro no servidor!");
+            });
         }
     }
 }

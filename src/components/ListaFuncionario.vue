@@ -13,7 +13,7 @@
                 <td>{{funcionario.id}}</td>
                 <td>{{funcionario.nome}}</td>
                 <td>{{funcionario.cargo}}</td>
-                <td>{{funcionario.dataNascimento}}</td>
+                <td>{{funcionario.dataAniversario}}</td>
                 <td>{{funcionario.dataEntrada}}</td>
             </tr>
         </table>
@@ -26,7 +26,7 @@ export default {
     name: 'ListaFuncionario',
     data: function(){
         return {
-            url: 'http://localhost:8090/backend_funcionario/api/funcionarios/',
+            url: 'http://localhost:8095/api/funcionarios',
             funcionarios: []
         }
     },

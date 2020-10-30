@@ -7,7 +7,7 @@
                     <li>ID: {{funcionario.id}}</li>
                     <li>Nome: {{funcionario.nome}}</li>
                     <li>Cargo: {{funcionario.cargo}}</li>
-                    <li>Data de Nascimento: {{funcionario.dataNascimento}}</li>
+                    <li>Data de Nascimento: {{funcionario.dataAniversario}}</li>
                     <li>Data de Entrada: {{funcionario.dataEntrada}}</li>
                 </ul>
             </li>
